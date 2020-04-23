@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Playfair+Display:900" rel="stylesheet">
+    <style>
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, a:visited, a:hover, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed,
+    figure, figcaption, footer, header, hgroup,
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      font: inherit;
+      text-decoration: none;
+      vertical-align: baseline;
+      color: inherit;
+      box-sizing: border-box;
+      line-height: normal; }
+
+    /* HTML5 display-role reset for older browsers */
+    article, aside, details, figcaption, figure,
+    footer, header, hgroup, menu, nav, section {
+      display: block; }
+
+    body {
+      line-height: 1; }
+
+    ol, ul {
+      list-style: none; }
+
+    blockquote, q {
+      quotes: none; }
+
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+      content: '';
+      content: none; }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0; }
+
+    body {
+      background-color: #ffffff;
+      color: #323232;
+      font-family: "Montserrat", sans-serif;
+      height: 100vh;
+      width: 100vw; }
+
+    .pg-page-wrapper {
+      background: linear-gradient(to bottom, #f5f5f5, #ffffff);
+      box-shadow: 0 100px 100px 0 rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      height: calc(100% - 80px);
+      margin: 40px;
+      min-width: 320px;
+      position: fixed;
+      width: calc(100% - 80px); }
+
+    .pg-text-style-1 {
+      display: block;
+      font-size: 40px;
+      font-weight: 900;
+      font-family: "Playfair Display", sans-serif; }
+
+    .pg-text-style-2 {
+      display: inline-block;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 32px; }
+
+    .pg-text-style-3 {
+      color: #535e74;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase; }
+
+    .pg-github-contributions h2,
+    .pg-github-contributions .contrib-footer,
+    .pg-github-contributions .contrib-column,
+    .pg-github-contributions text {
+      display: none; }
+    .pg-github-contributions svg {
+      height: 100%; }
+      .pg-github-contributions svg > g {
+        transform: none; }
+
+    .pg-nav-container {
+      align-items: center;
+      background-color: #f5f5f5;
+      color: #535e74;
+      display: flex;
+      font-family: "Montserrat", sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      justify-content: space-between;
+      letter-spacing: 1px;
+      padding: 25px 10%;
+      text-transform: uppercase;
+      transition: 300ms ease; }
+      .pg-nav-container a:hover,
+      .pg-nav-container li:hover {
+        color: #ECC230;
+        transition: 300ms ease; }
+
+    .pg-nav-right-group {
+      display: flex; }
+      .pg-nav-right-group li {
+        margin-right: 25px;
+        transition: 300ms ease; }
+      .pg-nav-right-group li:last-child {
+        margin: 0; }
+
+    #pg-nav-toggle {
+      display: none; }
+
+    .pg-content-container {
+      height: calc(100vh - (68px * 2));
+      overflow-y: scroll; }
+
+    .pg-header-container {
+      align-items: center;
+      display: flex;
+      height: 100%;
+      padding: 0 10%; }
+      .pg-header-container .pg-text-style-1,
+      .pg-header-container .pg-text-style-2 {
+        margin-top: 30px; }
+
+    .pg-header-text {
+      color: #323232;
+      height: 100%;
+      width: 70%; }
+
+    .pg-section-two {
+      display: flex;
+      min-height: calc(100vh - 132px);
+      padding: 50px 0 10%; }
+
+    .pg-section-two-text {
+      background-color: #ffffff;
+      box-shadow: 0 100px 100px 0 rgba(0, 0, 0, 0.1);
+      padding: 5% 10% 5% 10%;
+      width: 60%; }
+      .pg-section-two-text .pg-text-style-2 {
+        margin-top: 30px; }
+
+    .pg-section-two-image {
+      background-color: #ECC230;
+      width: 50%;
+      height: 50vh;
+      margin: auto 0 auto -10%; }
+
+    .pg-footer-container {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      padding: 25px 10%;
+      text-align: center;
+      z-index: 999; }
+      .pg-footer-container img {
+        height: 70px;
+        left: 0;
+        margin: 25px auto 0;
+        position: absolute;
+        right: 0;
+        transition: 300ms ease;
+        top: 5px;
+        width: 70px; }
+      .pg-footer-container img:hover {
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        transform: rotate(180deg);
+        transition: 300ms ease; }
+
+    @media (max-width: 768px) {
+      .pg-page-wrapper {
+        margin: 0;
+        height: calc(100% - 40px);
+        width: 100%; }
+
+      .pg-nav-container .pg-nav-right-group {
+        height: 0;
+        opacity: 0; }
+      .pg-nav-container .pg-nav-toggle {
+        align-items: flex-end;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        height: 50px;
+        justify-content: center;
+        width: 50px; }
+        .pg-nav-container .pg-nav-toggle span {
+          background-color: #bbbbbb;
+          border-radius: 4px;
+          display: block;
+          height: 2px;
+          margin: 2px 0;
+          opacity: 1;
+          transition: 300ms ease;
+          width: 10px; }
+        .pg-nav-container .pg-nav-toggle span:nth-child(2) {
+          width: 15px; }
+        .pg-nav-container .pg-nav-toggle span:nth-child(3) {
+          width: 20px; }
+      .pg-nav-container .pg-nav-toggle:hover span {
+        background-color: #ECC230;
+        transition: 300ms ease;
+        width: 20px; }
+      .pg-nav-container #pg-nav-toggle:checked ~ .pg-nav-right-group {
+        height: auto;
+        opacity: 1;
+        transition: 300ms ease; }
+      .pg-nav-container #pg-nav-toggle:checked ~ .pg-nav-toggle span {
+        margin: 0; }
+      .pg-nav-container #pg-nav-toggle:checked ~ .pg-nav-toggle span:nth-child(1) {
+        position: absolute;
+        transform: rotate(45deg);
+        width: 20px; }
+      .pg-nav-container #pg-nav-toggle:checked ~ .pg-nav-toggle span:nth-child(2) {
+        opacity: 0;
+        transition: 300ms ease; }
+      .pg-nav-container #pg-nav-toggle:checked ~ .pg-nav-toggle span:nth-child(3) {
+        position: absolute;
+        transform: rotate(-45deg);
+        width: 20px; }
+
+      .pg-nav-right-group {
+        background-color: #f5f5f5;
+        box-shadow: 0 100px 100px 0 rgba(0, 0, 0, 0.1);
+        align-items: center;
+        display: flex;
+        left: 0;
+        flex-direction: column;
+        padding: 5%;
+        position: absolute;
+        top: 70px;
+        width: 100%; }
+        .pg-nav-right-group li,
+        .pg-nav-right-group li:last-child {
+          margin: 10px 0;
+          text-align: center;
+          width: 100%; }
+
+      .pg-header-text {
+        width: 100%; }
+
+      .pg-header-closing {
+        flex-direction: column; }
+        .pg-header-closing span {
+          margin: 10px 0; }
+
+      .pg-footer-container {
+        justify-content: flex-end; }
+        .pg-footer-container .pg-text-style-3:nth-child(2) {
+          display: none; } }
+    </style>
+  </head>
+
+  <body>
+    <div class="pg-page-wrapper">
+      <nav class="pg-nav-container">
+        <span class="pg-nav-left-group">
+          <a href="#">
+            patriciagoh.github.io
+          </a>
+        </span>
+        <input type="checkbox" id="pg-nav-toggle">
+        <label for="pg-nav-toggle" class="pg-nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        <ul class="pg-nav-right-group">
+          <li><a href="#">Lorem ipsum</a></li>
+          <li><a href="#">Lorem ipsum</a></li>
+          <li><a href="#">Lorem ipsum</a></li>
+        </ul>
+      </nav>
+
+      <div class="pg-content-container">
+        <div class="pg-header-container">
+          <div class="pg-header-text">
+            <span class="pg-text-style-1">Lorem Ipsum</span>
+            <span class="pg-text-style-2">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nisi risus, laoreet porta turpis nec, facilisis ultrices mi. Vivamus dapibus urna augue, ac scelerisque lacus convallis id. Praesent scelerisque sapien quis nulla ornare, vitae luctus lacus hendrerit. Duis rhoncus vulputate ex, ac lobortis augue tincidunt vitae. Ut ante massa, fermentum malesuada ligula sed, ullamcorper porta eros. Quisque a congue est. Maecenas sit amet aliquet orci. Integer auctor condimentum egestas. Donec nec sollicitudin magna. Integer porttitor erat id tellus consectetur aliquet. Suspendisse potenti. Proin dapibus ipsum sed elit sagittis, ac finibus orci lobortis. Sed a ante orci. Nullam tristique arcu et turpis mattis aliquet quis non lacus.
+
+              In vitae pulvinar mauris. Nam cursus condimentum eros, at ultrices augue commodo eu. Proin ultricies sed mi sed pharetra. Vivamus tellus velit, sodales vitae urna in, auctor mollis erat. Suspendisse venenatis quis tellus ac fermentum. Vivamus aliquet est tristique augue ullamcorper gravida. Curabitur ac sem semper, semper libero quis, aliquam nisi.
+            </span>
+          </div>
+        </div>
+      </div>
+      <footer class="pg-footer-container">
+        <img href="#top" src="http://patriciagoh.com/images/pg-signature.svg">
+        <span class="pg-text-style-3">Powered by hot chocolate</span>
+        <span class="pg-text-style-3"></span>
+      </footer>
+    </div>
+
+<script async src="//api.beta.salemove.com/salemove_integration.js"></script>
+</body>
+</html>
